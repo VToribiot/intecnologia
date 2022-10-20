@@ -1,7 +1,21 @@
-import { Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { useRef } from 'react';
+import { Text, View, TextInput, TouchableOpacity, Button } from 'react-native';
 import styles from './components/login.js';
 
 export default function App() {
+
+  const emailRef = useRef('');
+  const nameRef = useRef('');
+  const ageRef = useRef('');
+
+  const onRegister = () => {
+    if (emailRef.current.value !== '' && nameRef.current.value !== '' && ageRef.current.value !== '') {
+      // Here goes the verification or processing of the users information
+      console.log(emailRef.current.value, nameRef.current.value, ageRef.current.value)
+    } else {
+      alert('Debe llenar todos los campos especificados')
+    }
+  }
 
   return (
     <View>
@@ -21,10 +35,11 @@ export default function App() {
       </View>
       <View style={styles.body}>
         <Text style={{fontFamily:'sans-serif-light', fontSize:32}}>Regístrate</Text>
-        <TextInput style={styles.input} placeholder="example@gmail.com" />
-        <TextInput style={styles.input} placeholder="Nombre" />
-        <TextInput style={styles.input} placeholder="Edad" />
-        <TouchableOpacity style={styles.appButtonContainer}>
+        <TextInput style={styles.input} placeholder="example@gmail.com" ref={emailRef} type='text'/>
+        <TextInput style={styles.input} placeholder="Nombre" ref={nameRef} type='text'/>
+        <TextInput style={styles.input} placeholder="Edad" ref={ageRef} type='text'/>
+        {/*<Button color='#FF3131'title='Registrar' onPress={onRegister} ></Button>*/}
+        <TouchableOpacity style={styles.appButtonContainer} onPress={onRegister}>
           <Text style={styles.appButtonText}>Registrar</Text>
         </TouchableOpacity>
       </View>
