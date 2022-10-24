@@ -6,11 +6,12 @@ import styles from './Theme.js';
 function login() {
     const emailRef = useRef('');
     const nameRef = useRef('');
+    const passwordRef = useRef('');
   
     const onRegister = () => {
-      if (emailRef.current.value !== '' && nameRef.current.value !== '') {
+      if (emailRef.current.value !== '' && nameRef.current.value !== '' && passwordRef.current.value !== '') {
         // Here goes the verification or processing of the users information
-        console.log(emailRef.current.value, nameRef.current.value)
+        console.log(emailRef.current.value, nameRef.current.value, passwordRef.current.value)
       } else {
         alert('Debe llenar todos los campos especificados')
       }
@@ -36,15 +37,23 @@ function login() {
           <Text style={{fontFamily:'sans-serif-light', fontSize:32}}>Regístrate</Text>
           <TextInput style={styles.input} placeholder="example@gmail.com" ref={emailRef} type='text'/>
           <TextInput style={styles.input} placeholder="Nombre" ref={nameRef} type='text'/>
+          {/*Check how to link this with a useRef in order to validate if empty*/}
           <RNPickerSelect
-            style={styles.input}
+            useNativeAndroidPickerStyle={false}
             onValueChange={(value) => console.log(value)}
+            style={{
+              placeholder : {
+                color : 'black',
+                fontSize: 18,
+                fontFamily : 'sans-serif-light',
+              }}}
             items={[
                 { label: 'Estudiante', value: 1 },
                 { label: 'Empresario', value: 2 },
                 { label: 'Ni idea', value: 3 },
             ]}
-        />
+          />
+          <TextInput style={styles.input} placeholder="Contraseña" ref={passwordRef} type='text'/>
           {/*<Button color='#FF3131'title='Registrar' onPress={onRegister} ></Button>*/}
           <TouchableOpacity style={styles.appButtonContainer} onPress={onRegister}>
             <Text style={styles.appButtonText}>Registrar</Text>

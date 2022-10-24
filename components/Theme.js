@@ -69,16 +69,6 @@ export default StyleSheet.create({
       alignSelf: "center",
       textTransform: "uppercase"
     },
-    select : {
-      fontSize: 14,
-      paddingHorizontal: 10,
-      paddingVertical: 8,
-      borderWidth: 1,
-      borderColor: 'blue',
-      borderRadius: 8,
-      color: 'black',
-      paddingRight: 30, // to ensure the text is never behind the icon
-    },
     footer : {
       flex: 1,
       justifyContent: "flex-end",
