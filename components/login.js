@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { Text, View, TextInput, TouchableOpacity, Button } from 'react-native';
-import styles from './components/Theme.js';
+import styles from './Theme.js';
 
 function login() {
     const emailRef = useRef('');
