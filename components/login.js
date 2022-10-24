@@ -3,7 +3,7 @@ import { Text, View, TextInput, TouchableOpacity, Button } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import styles from './Theme.js';
 
-function login() {
+function login( { navigation } ) {
     const emailRef = useRef('');
     const nameRef = useRef('');
     const passwordRef = useRef('');
@@ -57,6 +57,10 @@ function login() {
           {/*<Button color='#FF3131'title='Registrar' onPress={onRegister} ></Button>*/}
           <TouchableOpacity style={styles.appButtonContainer} onPress={onRegister}>
             <Text style={styles.appButtonText}>Registrar</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.appButtonContainer} onPress={() =>
+                navigation.navigate('ScanQR')}>
+            <Text style={styles.appButtonText}>Scanear QR</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.footer}>
