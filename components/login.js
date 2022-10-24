@@ -1,16 +1,16 @@
 import { useRef } from 'react';
 import { Text, View, TextInput, TouchableOpacity, Button } from 'react-native';
-import styles from './components/Theme.js';
+import RNPickerSelect from 'react-native-picker-select';
+import styles from './Theme.js';
 
 function login() {
     const emailRef = useRef('');
     const nameRef = useRef('');
-    const ageRef = useRef('');
   
     const onRegister = () => {
-      if (emailRef.current.value !== '' && nameRef.current.value !== '' && ageRef.current.value !== '') {
+      if (emailRef.current.value !== '' && nameRef.current.value !== '') {
         // Here goes the verification or processing of the users information
-        console.log(emailRef.current.value, nameRef.current.value, ageRef.current.value)
+        console.log(emailRef.current.value, nameRef.current.value)
       } else {
         alert('Debe llenar todos los campos especificados')
       }
@@ -36,7 +36,15 @@ function login() {
           <Text style={{fontFamily:'sans-serif-light', fontSize:32}}>Regístrate</Text>
           <TextInput style={styles.input} placeholder="example@gmail.com" ref={emailRef} type='text'/>
           <TextInput style={styles.input} placeholder="Nombre" ref={nameRef} type='text'/>
-          <TextInput style={styles.input} placeholder="Edad" ref={ageRef} type='text'/>
+          <RNPickerSelect
+            style={styles.input}
+            onValueChange={(value) => console.log(value)}
+            items={[
+                { label: 'Estudiante', value: 1 },
+                { label: 'Empresario', value: 2 },
+                { label: 'Ni idea', value: 3 },
+            ]}
+        />
           {/*<Button color='#FF3131'title='Registrar' onPress={onRegister} ></Button>*/}
           <TouchableOpacity style={styles.appButtonContainer} onPress={onRegister}>
             <Text style={styles.appButtonText}>Registrar</Text>
