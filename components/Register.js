@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { Text, View, TextInput, TouchableOpacity } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import styles from './Theme.js';
@@ -11,9 +11,9 @@ function Register( { navigation } ) {
   const [type, setType] = useState();
   
     const onRegister = () => {
-      if (emailRef.current.value !== '' && nameRef.current.value !== '' && passwordRef.current.value !== '') {
+      if (email.trim() !== '' && name.trim !== '' && password.trim() !== '' && type > 0) {
         // Here goes the verification or processing of the users information
-        console.log(emailRef.current.value, nameRef.current.value, passwordRef.current.value)
+        console.log(email, name, password, type)
       } else {
         alert('Debe llenar todos los campos especificados')
       }
