@@ -34,19 +34,28 @@ function Login( { navigation } ) {
           <Text style={styles.headerFont}>A</Text>
         </View>
         <View style={styles.body}>
-          <Text style={{fontFamily:'sans-serif-light', fontSize:32}}>Inicia Sesión</Text>
-          <TextInput style={styles.input} placeholder="example@gmail.com" onChangeText={userEmail => setEmail(userEmail)} type='text'/>
-          <TextInput style={styles.input} placeholder="Contraseña" onChangeText={userPassword => setPassword(userPassword)} secureTextEntry={true} id='userPassword'/>
-          <TouchableOpacity>
-            <Text>Mostrar</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.appButtonContainer} onPress={onSignIn}>
-            <Text style={styles.appButtonText}>Iniciar Sesión</Text>
-          </TouchableOpacity>
-          <Text style={{fontFamily:'sans-serif-light', fontSize:12}}>¿No tienes cuenta aún?</Text>
-          <TouchableOpacity style={styles.appButtonContainer} onPress={() => navigation.navigate('Register')}>
-            <Text style={styles.appButtonText}>Registrar</Text>
-          </TouchableOpacity>
+            <Text style={{fontFamily:'sans-serif-light', fontSize:32}}>Inicia Sesión</Text>
+            <TextInput 
+            style={styles.input} 
+            placeholder="example@gmail.com" 
+            onChangeText={userEmail => setEmail(userEmail)} 
+            />
+            <TextInput 
+                style={styles.input} 
+                placeholder="Contraseña" 
+                onChangeText={userPassword => setPassword(userPassword)} 
+                secureTextEntry={true}
+            />
+            <TouchableOpacity>
+                <Text>Mostrar</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.appButtonContainer} onPress={onSignIn}>
+                <Text style={styles.appButtonText}>Iniciar Sesión</Text>
+            </TouchableOpacity>
+            <Text style={{fontFamily:'sans-serif-light', fontSize:12}}>¿No tienes cuenta aún?</Text>
+            <TouchableOpacity style={styles.appButtonContainer} onPress={() => navigation.navigate('Register')}>
+                <Text style={styles.appButtonText}>Registrar</Text>
+            </TouchableOpacity>
         </View>
         <View style={styles.footer}>
           <TouchableOpacity style={styles.helpButtonContainer}>
