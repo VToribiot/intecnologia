@@ -19,11 +19,12 @@ function Login( { navigation } ) {
               res => {
                 //Incorrect credentials
                 if(res.data.result.stringCode === 'Credenciales incorrectas'){
-                  console.log('Credenciales incorrectas');
+                  alert('La información suministrada no es correcta, por favor intentar nuevamente');
                 }
                 //Correct credentials
                 else{
                   console.log('Credenciales correctas :)')
+                  // Redirect to Home Page
                 }
               }
             )

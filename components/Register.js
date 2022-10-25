@@ -24,9 +24,10 @@ function Register() {
           res => {
             if(res.data.result.stringCode === 'Correo valido'){
               console.log('Registrado correctamente')
+              // Redirect to Login or Home Page → This needs to be decided by the team
             }
             else{
-              console.log('No pudo ser registrado')
+              alert('Ha ocurrido un error, no pudo ser registrado, favor intentar nuevamente')
             }
             console.log(res.data.result.stringCode)
           }
