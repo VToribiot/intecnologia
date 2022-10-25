@@ -36,7 +36,7 @@ function Login( { navigation } ) {
         <View style={styles.body}>
           <Text style={{fontFamily:'sans-serif-light', fontSize:32}}>Inicia Sesión</Text>
           <TextInput style={styles.input} placeholder="example@gmail.com" onChangeText={userEmail => setEmail(userEmail)} type='text'/>
-          <TextInput style={styles.input} placeholder="Contraseña" onChangeText={userPassword => setEmail(userPassword)} secureTextEntry={true} id='userPassword'/>
+          <TextInput style={styles.input} placeholder="Contraseña" onChangeText={userPassword => setPassword(userPassword)} secureTextEntry={true} id='userPassword'/>
           <TouchableOpacity>
             <Text>Mostrar</Text>
           </TouchableOpacity>

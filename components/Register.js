@@ -4,9 +4,11 @@ import RNPickerSelect from 'react-native-picker-select';
 import styles from './Theme.js';
 
 function Register( { navigation } ) {
-    const emailRef = useRef('');
-    const nameRef = useRef('');
-    const passwordRef = useRef('');
+  
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const [type, setType] = useState();
   
     const onRegister = () => {
       if (emailRef.current.value !== '' && nameRef.current.value !== '' && passwordRef.current.value !== '') {
@@ -35,12 +37,12 @@ function Register( { navigation } ) {
         </View>
         <View style={styles.body}>
           <Text style={{fontFamily:'sans-serif-light', fontSize:32}}>Regístrate</Text>
-          <TextInput style={styles.input} placeholder="example@gmail.com" ref={emailRef} type='text'/>
-          <TextInput style={styles.input} placeholder="Nombre" ref={nameRef} type='text'/>
+          <TextInput style={styles.input} placeholder="example@gmail.com" onChangeText={newEmail => setEmail(newEmail)} type='text'/>
+          <TextInput style={styles.input} placeholder="Nombre" onChangeText={newName => setName(newName)} type='text'/>
           {/*Check how to link this with a useRef in order to validate if empty*/}
           <RNPickerSelect
             useNativeAndroidPickerStyle={false}
-            onValueChange={(value) => console.log(value)}
+            onValueChange={(value) => setType(value)}
             style={{
               placeholder : {
                 color : 'black',
@@ -53,7 +55,7 @@ function Register( { navigation } ) {
                 { label: 'Ni idea', value: 3 },
             ]}
           />
-          <TextInput style={styles.input} placeholder="Contraseña" ref={passwordRef} type='text'/>
+          <TextInput style={styles.input} placeholder="Contraseña" onChangeText={newPassword => setPassword(newPassword)} type='text'/>
           {/*<Button color='#FF3131'title='Registrar' onPress={onRegister} ></Button>*/}
           <TouchableOpacity style={styles.appButtonContainer} onPress={onRegister}>
             <Text style={styles.appButtonText}>Registrar</Text>
