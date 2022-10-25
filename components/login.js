@@ -1,21 +1,22 @@
-import { useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { Text, View, TextInput, TouchableOpacity } from 'react-native';
 import styles from './Theme.js';
 
 function Login( { navigation } ) {
-    
-    const emailRef = useRef('');
-    const passwordRef = useRef('');
-  
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
     const onSignIn = () => {
-      if (emailRef.current.value !== '' && passwordRef.current.value !== '') {
-        // Here goes the verification or processing of the users information
-        console.log(emailRef.current.value, passwordRef.current.value)
-      } else {
-        alert('Debe llenar todos los campos especificados')
-      }
+        if (email.trim() !== '' && password.trim() !== '') {
+            // Validate email and password process
+            console.log(email, password)
+        } else {
+            alert('Debe llenar los campos establecidos')
+        }
     }
-  
+
+    
     return (
       <View>
         <View style={styles.header}>
@@ -34,8 +35,11 @@ function Login( { navigation } ) {
         </View>
         <View style={styles.body}>
           <Text style={{fontFamily:'sans-serif-light', fontSize:32}}>Inicia Sesión</Text>
-          <TextInput style={styles.input} placeholder="example@gmail.com" ref={emailRef} type='text'/>
-          <TextInput style={styles.input} placeholder="Contraseña" ref={passwordRef} type='text'/>
+          <TextInput style={styles.input} placeholder="example@gmail.com" onChangeText={userEmail => setEmail(userEmail)} type='text'/>
+          <TextInput style={styles.input} placeholder="Contraseña" onChangeText={userPassword => setEmail(userPassword)} secureTextEntry={true} id='userPassword'/>
+          <TouchableOpacity>
+            <Text>Mostrar</Text>
+          </TouchableOpacity>
           <TouchableOpacity style={styles.appButtonContainer} onPress={onSignIn}>
             <Text style={styles.appButtonText}>Iniciar Sesión</Text>
           </TouchableOpacity>
