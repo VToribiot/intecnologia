@@ -1,18 +1,41 @@
-import { useRef, useState } from 'react';
+import axios from 'axios';
+import React,{  useState } from 'react';
 import { Text, View, TextInput, TouchableOpacity } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import styles from './Theme.js';
 
-function Register( { navigation } ) {
+function Register() {
   
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
-  const [type, setType] = useState();
-  
+  const [type, setType] = useState(0);
+  const data = {
+    emailUser : email,
+    fullNameUser : name,
+    passwordUser : password,
+    idUserType : type
+  }
     const onRegister = () => {
-      if (email.trim() !== '' && name.trim !== '' && password.trim() !== '' && type > 0) {
+      if (email.trim() !== '' && name.trim() !== '' && password.trim() !== '' && type > 0) {
         // Here goes the verification or processing of the users information
+        axios.post('http://evasquez03-001-site1.btempurl.com/api/User/Register', data)
+        .then(
+          res => {
+            if(res.data.result.stringCode === 'Correo valido'){
+              console.log('Registrado correctamente')
+            }
+            else{
+              console.log('No pudo ser registrado')
+            }
+            console.log(res.data.result.stringCode)
+          }
+        )
+        .catch(
+          err => {
+
+          }
+        )
         console.log(email, name, password, type)
       } else {
         alert('Debe llenar todos los campos especificados')
@@ -50,15 +73,17 @@ function Register( { navigation } ) {
                 fontFamily : 'sans-serif-light',
               }}}
             items={[
-                { label: 'Estudiante', value: 1 },
-                { label: 'Empresario', value: 2 },
-                { label: 'Ni idea', value: 3 },
+                { label: 'Empresario', value: 1 },
+                { label: 'Estudiante', value: 2 }
             ]}
           />
           <TextInput style={styles.input} placeholder="Contraseña" onChangeText={newPassword => setPassword(newPassword)} type='text'/>
           {/*<Button color='#FF3131'title='Registrar' onPress={onRegister} ></Button>*/}
           <TouchableOpacity style={styles.appButtonContainer} onPress={onRegister}>
             <Text style={styles.appButtonText}>Registrar</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.appButtonContainer} onPress={() => navigation.navigate('Login')}>
+            <Text style={styles.appButtonText}>Iniciar Sesión</Text>
           </TouchableOpacity>
           {/*<TouchableOpacity style={styles.appButtonContainer} onPress={() =>
                 navigation.navigate('ScanQR')}>

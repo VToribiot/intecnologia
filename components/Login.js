@@ -17,7 +17,14 @@ function Login( { navigation } ) {
             axios.post("http://evasquez03-001-site1.btempurl.com/api/User/Login",data)
             .then(
               res => {
-                console.log(JSON.stringify(res.data))
+                //Incorrect credentials
+                if(res.data.result.stringCode === 'Credenciales incorrectas'){
+                  console.log('Credenciales incorrectas');
+                }
+                //Correct credentials
+                else{
+                  console.log('Credenciales correctas :)')
+                }
               }
             )
             .catch(
