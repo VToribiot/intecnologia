@@ -1,16 +1,39 @@
 import React, { useState, useRef } from 'react';
 import { Text, View, TextInput, TouchableOpacity } from 'react-native';
 import styles from './Theme.js';
+import axios from 'axios';
 
 function Login( { navigation } ) {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
+    const data = {
+      email,
+      password
+    }
     const onSignIn = () => {
         if (email.trim() !== '' && password.trim() !== '') {
             // Validate email and password process
-            console.log(email, password)
+            axios.post("http://evasquez03-001-site1.btempurl.com/api/User/Login",data)
+            .then(
+              res => {
+                //Incorrect credentials
+                if(res.data.result.stringCode === 'Credenciales incorrectas'){
+                  console.log('Credenciales incorrectas');
+                }
+                //Correct credentials
+                else{
+                  console.log('Credenciales correctas :)')
+                }
+              }
+            )
+            .catch(
+              err => {
+                console.log(err)
+              }
+            )
+            console.log(data)
+            
         } else {
             alert('Debe llenar los campos establecidos')
         }
