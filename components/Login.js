@@ -44,18 +44,7 @@ function Login( { navigation } ) {
     return (
       <View>
         <View style={styles.header}>
-          <Text style={styles.headerFont}>I</Text>
-          <Text style={styles.headerFont}>N</Text>
-          <Text style={styles.headerFont}>T</Text>
-          <Text style={styles.headerFont}>E</Text>
-          <Text style={styles.headerFont}>C</Text>
-          <Text style={styles.headerFont}>N</Text>
-          <Text style={styles.headerFont}>O</Text>
-          <Text style={styles.headerFont}>L</Text>
-          <Text style={styles.headerFont}>O</Text>
-          <Text style={styles.headerFont}>G</Text>
-          <Text style={styles.headerFont}>I</Text>
-          <Text style={styles.headerFont}>A</Text>
+          <Text style={styles.headerFont}>INTECNOLOGIA</Text>
         </View>
         <View style={styles.body}>
             <Text style={{fontFamily:'sans-serif-light', fontSize:32}}>Inicia Sesión</Text>
@@ -70,6 +59,7 @@ function Login( { navigation } ) {
                 onChangeText={userPassword => setPassword(userPassword)} 
                 secureTextEntry={true}
             />
+            {/*Configure show password button*/}
             <TouchableOpacity>
                 <Text>Mostrar</Text>
             </TouchableOpacity>
