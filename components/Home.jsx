@@ -1,10 +1,14 @@
 import React from 'react'
-import { Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity, Button } from 'react-native';
+import { VirtualizedList } from 'react-native-web';
 import styles from './Theme.js';
 
-function Home() {
+
+function Home({navigation}) {
+
   return (
-    <View style={styles.header}>
+    <View>
+      <View style={styles.header}>
         <Text style={styles.headerFont}>I</Text>
         <Text style={styles.headerFont}>N</Text>
         <Text style={styles.headerFont}>T</Text>
@@ -17,8 +21,14 @@ function Home() {
         <Text style={styles.headerFont}>G</Text>
         <Text style={styles.headerFont}>I</Text>
         <Text style={styles.headerFont}>A</Text>
+      </View>
+      <View>
+        <Button title="Toggle drawer" onPress={() => navigation.toggleDrawer()} />
+      </View>
     </View>
+
+
   )
 }
 
-export default Home
+export default Home;
