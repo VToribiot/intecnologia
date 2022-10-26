@@ -4,7 +4,7 @@ import { Text, View, TextInput, TouchableOpacity } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import styles from './Theme.js';
 
-function Register() {
+function Register( { navigation } ) {
   
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -25,6 +25,7 @@ function Register() {
             if(res.data.result.stringCode === 'Correo valido'){
               console.log('Registrado correctamente')
               // Redirect to Login or Home Page → This needs to be decided by the team
+              navigation.navigate('Login')
             }
             else{
               alert('Ha ocurrido un error, no pudo ser registrado, favor intentar nuevamente')
@@ -33,9 +34,7 @@ function Register() {
           }
         )
         .catch(
-          err => {
-
-          }
+          err => {}
         )
         console.log(email, name, password, type)
       } else {
@@ -46,18 +45,7 @@ function Register() {
     return (
       <View>
         <View style={styles.header}>
-          <Text style={styles.headerFont}>I</Text>
-          <Text style={styles.headerFont}>N</Text>
-          <Text style={styles.headerFont}>T</Text>
-          <Text style={styles.headerFont}>E</Text>
-          <Text style={styles.headerFont}>C</Text>
-          <Text style={styles.headerFont}>N</Text>
-          <Text style={styles.headerFont}>O</Text>
-          <Text style={styles.headerFont}>L</Text>
-          <Text style={styles.headerFont}>O</Text>
-          <Text style={styles.headerFont}>G</Text>
-          <Text style={styles.headerFont}>I</Text>
-          <Text style={styles.headerFont}>A</Text>
+          <Text style={styles.headerFont}>INTECNOLOGIA</Text>
         </View>
         <View style={styles.body}>
           <Text style={{fontFamily:'sans-serif-light', fontSize:32}}>Regístrate</Text>
@@ -82,9 +70,6 @@ function Register() {
           {/*<Button color='#FF3131'title='Registrar' onPress={onRegister} ></Button>*/}
           <TouchableOpacity style={styles.appButtonContainer} onPress={onRegister}>
             <Text style={styles.appButtonText}>Registrar</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.appButtonContainer} onPress={() => navigation.navigate('Login')}>
-            <Text style={styles.appButtonText}>Iniciar Sesión</Text>
           </TouchableOpacity>
           {/*<TouchableOpacity style={styles.appButtonContainer} onPress={() =>
                 navigation.navigate('ScanQR')}>
