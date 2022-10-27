@@ -24,10 +24,12 @@ function Home({navigation}) {
       </View>
       <View>
         <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
-          <Entypo name="menu" size={35} color="black" />
+        <Entypo name="menu" size={35} color="black" />
         </TouchableOpacity>
       </View>
     </View>
+
+
   )
 }
 
