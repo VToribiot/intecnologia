@@ -1,5 +1,4 @@
 import React from 'react';
-import { Text, View } from 'react-native';
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
@@ -28,6 +27,7 @@ function MyDrawer({}) {
     <Drawer.Navigator
       useLegacyImplementation
       drawerContent={(props) => <CustomDrawerContent {...props} />}
+      screenOptions={{headerShown: false}}
     >
       <Drawer.Screen name="Inicio" component={Home} />
       <Drawer.Screen name="Notificación" component={Notification} />
