@@ -1,6 +1,5 @@
 import React from 'react'
 import { Text, View, TextInput, TouchableOpacity, Button } from 'react-native';
-import { VirtualizedList } from 'react-native-web';
 import styles from './Theme.js';
 import { Entypo } from '@expo/vector-icons'; 
 
