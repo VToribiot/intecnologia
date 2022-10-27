@@ -62,16 +62,16 @@ export default StyleSheet.create({
       height: 50,
       justifyContent: 'flex-end'
     },
-    burgerMenu : {
-      marginLeft : 20,
-      marginTop : 20
-    },
     helpButtonText: {
       fontSize: 18,
       color: "#FF3131",
       fontWeight: "bold",
       alignSelf: "center",
       textTransform: "uppercase"
+    },
+    burgerMenu : {
+      marginLeft : 20,
+      marginTop : 20
     },
     footer : {
       flex: 1,
@@ -80,6 +80,14 @@ export default StyleSheet.create({
       marginRight: '10%',
       marginTop: '35%',
       alignItems: "flex-end",
+    },
+    scannerQrButton: {
+      backgroundColor: "#ffffff",
+      borderRadius: 25,
+      paddingVertical: 10,
+      paddingHorizontal: 10,
+      width: 50,
+      height: 50,
     }
   });
   

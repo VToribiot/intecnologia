@@ -1,13 +1,14 @@
 import React from 'react'
-import { Text, View, TextInput, TouchableOpacity, Button } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity, Button, Image } from 'react-native';
 import styles from './Theme.js';
 import { Entypo } from '@expo/vector-icons'; 
-
+import { AntDesign } from '@expo/vector-icons'; 
+import symbolicateStackTrace from 'react-native/Libraries/Core/Devtools/symbolicateStackTrace';
 
 function Home({navigation}) {
 
   return (
-    <View>
+    <View >
       <View style={styles.header}>
         <Text style={styles.headerFont}>I</Text>
         <Text style={styles.headerFont}>N</Text>
@@ -27,6 +28,17 @@ function Home({navigation}) {
         <Entypo name="menu" size={35} color="black" />
         </TouchableOpacity>
       </View>
+      <View style={styles.body}>
+
+      </View>
+      <View style={styles.footer}>
+        <TouchableOpacity style={styles.scannerQrButton} onPress={() => navigation.navigate('ScanQR')}>
+          <AntDesign name="qrcode" size={30} color="black" />
+        </TouchableOpacity>
+      </View>
+
+
+
     </View>
 
 

@@ -3,7 +3,7 @@ import { Text, View, TouchableOpacity } from 'react-native';
 import styles from './Theme.js';
 import { Entypo } from '@expo/vector-icons'; 
 
-const Notification = () => (
+const Notification = ({navigation}) => (
     <View >
         <View style={styles.header}>
             <Text style={styles.headerFont}>I</Text>
