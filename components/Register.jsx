@@ -6,6 +6,7 @@ import styles from './Theme.js';
 
 function Register( { navigation } ) {
   
+  const font = 'sans-serif-light';
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
@@ -48,7 +49,7 @@ function Register( { navigation } ) {
           <Text style={styles.headerFont}>INTECNOLOGIA</Text>
         </View>
         <View style={styles.body}>
-          <Text style={{fontFamily:'sans-serif-light', fontSize:32}}>Regístrate</Text>
+          <Text style={{fontFamily:font, fontSize:32}}>Regístrate</Text>
           <TextInput style={styles.input} placeholder="example@gmail.com" onChangeText={newEmail => setEmail(newEmail)} type='text'/>
           <TextInput style={styles.input} placeholder="Nombre" onChangeText={newName => setName(newName)} type='text'/>
           {/*Check how to link this with a useRef in order to validate if empty*/}
@@ -59,7 +60,7 @@ function Register( { navigation } ) {
               placeholder : {
                 color : 'black',
                 fontSize: 18,
-                fontFamily : 'sans-serif-light',
+                fontFamily : font,
               }}}
             items={[
                 { label: 'Empresario', value: 1 },
