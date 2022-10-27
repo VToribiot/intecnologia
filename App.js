@@ -13,9 +13,9 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name="Drawer" component={MyDrawer} />
-        <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Register" component={Register} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Drawer" component={MyDrawer} />
         <Stack.Screen name="ScanQR" component={ScanQR} />
       </Stack.Navigator>
     </NavigationContainer>

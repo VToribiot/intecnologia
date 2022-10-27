@@ -4,7 +4,7 @@ import styles from './Theme.js';
 import axios from 'axios';
 
 function Login( { navigation } ) {
-    const font = 'sans-serif-light';
+    const font = 'Roboto';
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const data = {
@@ -44,7 +44,9 @@ function Login( { navigation } ) {
     return (
       <View>
         <View style={styles.header}>
-          <Text style={styles.headerFont}>INTECNOLOGIA</Text>
+          <Image source = {{uri:'https://images.unsplash.com/photo-1666625628272-a1071f6f7173?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80'}}
+              style = {{ width: "100%", height: 200 }}
+          />
         </View>
         <View style={styles.body}>
             <Text style={{fontFamily: font, fontSize:32}}>Inicia Sesión</Text>

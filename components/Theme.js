@@ -16,20 +16,11 @@ export default StyleSheet.create({
     },
     header: {
       flexDirection: 'row',
-      backgroundColor: '#FF3131',
       justifyContent: 'center',
       width: '100%',
       height: 'auto',
       alignItems: 'center',
-      padding: 15,
       marginTop: 50,
-    },
-    headerFont: {
-      fontSize: 36,
-      marginVertical: 10,
-      fontFamily: 'notoserif',
-      color: '#ffffff',
-      fontWeight: 'bold',
     },
     body: {
       alignItems: 'center',
@@ -40,17 +31,18 @@ export default StyleSheet.create({
     },
     appButtonContainer: {
       elevation: 8,
-      backgroundColor: "#FF3131",
+      backgroundColor: "#AC0A22",
       borderRadius: 10,
       paddingVertical: 10,
-      paddingHorizontal: 12
+      paddingHorizontal: 12,
+      width: '60%',
     },
     appButtonText: {
       fontSize: 18,
       color: "#fff",
-      fontWeight: "bold",
       alignSelf: "center",
-      textTransform: "uppercase"
+      textTransform: "uppercase",
+      fontFamily: "Roboto",
     },
     helpButtonContainer: {
       elevation: 8,
