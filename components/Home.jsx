@@ -23,8 +23,8 @@ function Home({navigation}) {
         <Text style={styles.headerFont}>A</Text>
       </View>
       <View>
-        <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
-        <Entypo name="menu" size={35} color="black" />
+        <TouchableOpacity style={styles.burgerMenu} onPress={() => navigation.toggleDrawer()}>
+          <Entypo name="menu" size={35} color="black" />
         </TouchableOpacity>
       </View>
     </View>

@@ -62,6 +62,10 @@ export default StyleSheet.create({
       height: 50,
       justifyContent: 'flex-end'
     },
+    burgerMenu : {
+      marginLeft : 20,
+      marginTop : 20
+    },
     helpButtonText: {
       fontSize: 18,
       color: "#FF3131",
