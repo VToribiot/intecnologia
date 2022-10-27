@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, StyleSheet, Button } from 'react-native';
+import { Text, View, StyleSheet, Button, TouchableOpacity } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
-
-export default function ScannerQR() {
+import { Ionicons } from '@expo/vector-icons'; 
+import Theme from './Theme.js';
+export default function ScannerQR({navigation}) {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
-  const [text, setText] = useState('Not yet scanned')
+  const [text, setText] = useState('Favor scannear el codigo QR del stand')
 
   const askForCameraPermission = () => {
     (async () => {
@@ -23,7 +24,8 @@ export default function ScannerQR() {
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
     setText(data)
-    console.log('Type: ' + type + '\nData: ' + data)
+    console.log('Type: ' + type + '\nData: ' + data);
+    navigation.navigate('Inicio')
   };
 
   // Check permissions and return the screens
@@ -44,6 +46,12 @@ export default function ScannerQR() {
   // Return the View
   return (
     <View style={styles.container}>
+      <View style={styles.backButtonContainer}>
+        <TouchableOpacity onPress={() => navigation.navigate('Inicio')}>
+          <Ionicons name="chevron-back-outline" size={35} color="black" />
+        </TouchableOpacity>
+      </View>
+      <View>
       <View style={styles.barcodebox}>
         <BarCodeScanner
           onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
@@ -52,6 +60,8 @@ export default function ScannerQR() {
       <Text style={styles.maintext}>{text}</Text>
 
       {scanned && <Button title={'Scan again?'} onPress={() => setScanned(false)} color='tomato' />}
+      </View>
+      
     </View>
   );
 }
@@ -61,7 +71,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
+    paddingTop: 70
   },
   maintext: {
     fontSize: 16,
@@ -70,10 +81,17 @@ const styles = StyleSheet.create({
   barcodebox: {
     alignItems: 'center',
     justifyContent: 'center',
-    height: 300,
-    width: 300,
+    height: 400,
+    width: 360,
     overflow: 'hidden',
     borderRadius: 30,
-    backgroundColor: 'tomato'
+    backgroundColor: 'tomato',
+  },
+  backButtonContainer:{
+    flexDirection: 'row',
+    alignSelf: 'stretch',
+    marginLeft: 20,
+    paddingBottom: 80
   }
+
 });

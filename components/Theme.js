@@ -77,17 +77,20 @@ export default StyleSheet.create({
       flex: 1,
       justifyContent: "flex-end",
       marginLeft: '10%',
-      marginRight: '10%',
+      marginRight: 20,
       marginTop: '35%',
       alignItems: "flex-end",
     },
     scannerQrButton: {
       backgroundColor: "#ffffff",
-      borderRadius: 25,
+      borderRadius: 30,
       paddingVertical: 10,
       paddingHorizontal: 10,
-      width: 50,
-      height: 50,
+      width: 53,
+      height: 53,
+      justifyContent:'center',
+      alignItems:'center'
     }
+
   });
   

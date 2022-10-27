@@ -33,7 +33,7 @@ function Home({navigation}) {
       </View>
       <View style={styles.footer}>
         <TouchableOpacity style={styles.scannerQrButton} onPress={() => navigation.navigate('ScanQR')}>
-          <AntDesign name="qrcode" size={30} color="black" />
+          <AntDesign name="qrcode" size={35} color="black" />
         </TouchableOpacity>
       </View>
 
