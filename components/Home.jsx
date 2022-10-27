@@ -2,6 +2,7 @@ import React from 'react'
 import { Text, View, TextInput, TouchableOpacity, Button } from 'react-native';
 import { VirtualizedList } from 'react-native-web';
 import styles from './Theme.js';
+import { Entypo } from '@expo/vector-icons'; 
 
 
 function Home({navigation}) {
@@ -23,7 +24,9 @@ function Home({navigation}) {
         <Text style={styles.headerFont}>A</Text>
       </View>
       <View>
-        <Button title="Toggle drawer" onPress={() => navigation.toggleDrawer()} />
+        <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
+        <Entypo name="menu" size={35} color="black" />
+        </TouchableOpacity>
       </View>
     </View>
 

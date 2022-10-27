@@ -1,8 +1,9 @@
 import React from 'react';
 import { Text, View } from 'react-native';
+import styles from './Theme.js';
 
 const Notification = () => (
-    <View>
+    <View style={styles.header}>
         <Text>Notification</Text>
     </View>
 );
