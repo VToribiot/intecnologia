@@ -51,10 +51,12 @@ function Register( { navigation } ) {
           />
         </View>
         <View style={styles.body}>
-          <Text style={{fontFamily:font, fontSize:32}}>Regístrate</Text>
-          <TextInput style={styles.input} placeholder="example@gmail.com" onChangeText={newEmail => setEmail(newEmail)} type='text'/>
+          <Text>Nombre</Text>
           <TextInput style={styles.input} placeholder="Nombre" onChangeText={newName => setName(newName)} type='text'/>
+          <Text>Correo Electrónico</Text>
+          <TextInput style={styles.input} placeholder="example@gmail.com" onChangeText={newEmail => setEmail(newEmail)} type='text'/>
           {/*Check how to link this with a useRef in order to validate if empty*/}
+          <Text>Tipo de Persona</Text>
           <RNPickerSelect
             useNativeAndroidPickerStyle={false}
             onValueChange={(value) => setType(value)}
@@ -69,6 +71,7 @@ function Register( { navigation } ) {
                 { label: 'Estudiante', value: 2 }
             ]}
           />
+          <Text>Contraseña</Text>
           <TextInput style={styles.input} placeholder="Contraseña" onChangeText={newPassword => setPassword(newPassword)} type='text'/>
           {/*<Button color='#FF3131'title='Registrar' onPress={onRegister} ></Button>*/}
           <TouchableOpacity style={styles.appButtonContainer} onPress={onRegister}>
