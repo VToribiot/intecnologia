@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
 import styles from './Theme.js';
 import axios from 'axios';
 
@@ -61,17 +61,10 @@ function Login( { navigation } ) {
                 onChangeText={userPassword => setPassword(userPassword)} 
                 secureTextEntry={true}
             />
-            {/*Configure show password button*/}
-            <TouchableOpacity>
-                <Text>Mostrar</Text>
-            </TouchableOpacity>
             <TouchableOpacity style={styles.appButtonContainer} onPress={onSignIn}>
                 <Text style={styles.appButtonText}>Iniciar Sesión</Text>
             </TouchableOpacity>
             <Text style={{fontFamily: font, fontSize:12}}>¿No tienes cuenta aún?</Text>
-            <TouchableOpacity style={styles.appButtonContainer} onPress={() => navigation.navigate('Register')}>
-                <Text style={styles.appButtonText}>Registrar</Text>
-            </TouchableOpacity>
         </View>
         <View style={styles.footer}>
           <TouchableOpacity style={styles.helpButtonContainer}>

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React,{  useState } from 'react';
-import { Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import styles from './Theme.js';
 
@@ -44,40 +44,46 @@ function Register( { navigation } ) {
     }
   
     return (
-      <View>
+      <View style={styles.container}>
         <View style={styles.header}>
-          <Image source = {{uri:'https://images.unsplash.com/photo-1666625628272-a1071f6f7173?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80'}}
-            style = {{ width: "100%", height: 200 }}
+          <Image source = {require('../assets/LogoIntecnologia.png')}
+            style = {{ width: "85%", height: 50 }}
           />
         </View>
         <View style={styles.body}>
-          <Text style={{fontFamily:font, fontSize:32}}>Regístrate</Text>
-          <TextInput style={styles.input} placeholder="example@gmail.com" onChangeText={newEmail => setEmail(newEmail)} type='text'/>
-          <TextInput style={styles.input} placeholder="Nombre" onChangeText={newName => setName(newName)} type='text'/>
+          <View>
+            <Text style={styles.textInput}>Nombre de usuario</Text>
+            <TextInput style={styles.input} placeholder="" onChangeText={newName => setName(newName)} type='text'/>
+          </View>
+          <View>
+            <Text style={styles.textInput}>Correo electronico</Text>
+            <TextInput style={styles.input} placeholder="" onChangeText={newEmail => setEmail(newEmail)} type='text'/>
+          </View>
           {/*Check how to link this with a useRef in order to validate if empty*/}
-          <RNPickerSelect
-            useNativeAndroidPickerStyle={false}
-            onValueChange={(value) => setType(value)}
-            style={{
-              placeholder : {
-                color : 'black',
-                fontSize: 18,
-                fontFamily : font,
-              }}}
-            items={[
-                { label: 'Empresario', value: 1 },
-                { label: 'Estudiante', value: 2 }
-            ]}
-          />
-          <TextInput style={styles.input} placeholder="Contraseña" onChangeText={newPassword => setPassword(newPassword)} type='text'/>
-          {/*<Button color='#FF3131'title='Registrar' onPress={onRegister} ></Button>*/}
+          <View>
+            <Text style={styles.textInput}>Tipo usuario</Text>
+            <RNPickerSelect
+              useNativeAndroidPickerStyle={false}
+              onValueChange={(value) => setType(value)}
+              style={pickerSelectStyles}
+              items={[
+                  { label: 'Empresario', value: 1 },
+                  { label: 'Estudiante', value: 2 }
+              ]}
+            />
+          </View>
+          
+          <View>
+            <Text style={styles.textInput}>Contreseña</Text>
+            <TextInput style={styles.input}  onChangeText={newPassword => setPassword(newPassword)} type='text' secureTextEntry={true}/>
+          </View>
           <TouchableOpacity style={styles.appButtonContainer} onPress={onRegister}>
-            <Text style={styles.appButtonText}>Registrar</Text>
+            <Text style={styles.appButtonText}>Registrarme</Text>
           </TouchableOpacity>
-          {/*<TouchableOpacity style={styles.appButtonContainer} onPress={() =>
-                navigation.navigate('ScanQR')}>
-            <Text style={styles.appButtonText}>Scanear QR</Text>
-          </TouchableOpacity>*/}
+          <View style={styles.linkTextContainer}>
+            <TouchableOpacity onPress={() => navigation.navigate('Login')}><Text style={styles.linkText}>Iniciar sesión</Text></TouchableOpacity>
+            <TouchableOpacity><Text style={styles.linkText}>¿Problemas para acceder?</Text></TouchableOpacity>
+          </View>
         </View>
         <View style={styles.footer}>
           <TouchableOpacity style={styles.helpButtonContainer}>
@@ -87,5 +93,31 @@ function Register( { navigation } ) {
       </View>
     );
 }
+
+
+const pickerSelectStyles = StyleSheet.create({
+  inputIOS: {
+    width: 358,
+    height: 48,
+    paddingHorizontal: 20,
+    paddingVertical: 8,
+    borderWidth: 1,
+    borderColor: '#E9E9E9',
+    borderRadius: 25,
+    color: 'black',
+    margin: 12,
+  },
+  inputAndroid: {
+      width: 358,
+      height: 48,
+      paddingHorizontal: 20,
+      paddingVertical: 8,
+      borderWidth: 1,
+      borderColor: '#E9E9E9',
+      borderRadius: 25,
+      color: 'black',
+      margin: 12,
+  }
+});
 
 export default Register
