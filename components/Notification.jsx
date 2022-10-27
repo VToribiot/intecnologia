@@ -19,10 +19,10 @@ const Notification = ({navigation}) => (
             <Text style={styles.headerFont}>I</Text>
             <Text style={styles.headerFont}>A</Text>
         </View>
-        <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
+        <TouchableOpacity style={styles.burgerMenu} onPress={() => navigation.toggleDrawer()}>
           <Entypo name="menu" size={35} color="black" />
         </TouchableOpacity>
-        <Text>Pagina notificacion</Text>
+        <Text>Notificación</Text>
     </View>
 );
 
