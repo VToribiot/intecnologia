@@ -3,7 +3,7 @@ import { Text, View, TouchableOpacity } from 'react-native';
 import styles from './Theme.js';
 import { Entypo } from '@expo/vector-icons'; 
 
-const Notification = () => (
+const Notification = ({navigation}) => (
     <View >
         <View style={styles.header}>
             <Text style={styles.headerFont}>I</Text>
@@ -19,10 +19,10 @@ const Notification = () => (
             <Text style={styles.headerFont}>I</Text>
             <Text style={styles.headerFont}>A</Text>
         </View>
-        <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
+        <TouchableOpacity style={styles.burgerMenu} onPress={() => navigation.toggleDrawer()}>
           <Entypo name="menu" size={35} color="black" />
         </TouchableOpacity>
-        <Text>Pagina notificacion</Text>
+        <Text>Notificación</Text>
     </View>
 );
 
