@@ -43,28 +43,27 @@ function Login( { navigation } ) {
     
     return (
       <View>
-        <View style={styles.header}>
-          <Image source = {{uri:'https://images.unsplash.com/photo-1666625628272-a1071f6f7173?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80'}}
-              style = {{ width: "100%", height: 200 }}
+          <View style={styles.header}>
+          <Image source = {require('../assets/LogoIntecnologia.png')}
+            style = {{ width: "85%", height: 50 }}
           />
         </View>
         <View style={styles.body}>
-            <Text style={{fontFamily: font, fontSize:32}}>Inicia Sesión</Text>
-            <TextInput 
-            style={styles.input} 
-            placeholder="example@gmail.com" 
-            onChangeText={userEmail => setEmail(userEmail)} 
-            />
-            <TextInput 
-                style={styles.input} 
-                placeholder="Contraseña" 
-                onChangeText={userPassword => setPassword(userPassword)} 
-                secureTextEntry={true}
-            />
-            <TouchableOpacity style={styles.appButtonContainer} onPress={onSignIn}>
-                <Text style={styles.appButtonText}>Iniciar Sesión</Text>
-            </TouchableOpacity>
-            <Text style={{fontFamily: font, fontSize:12}}>¿No tienes cuenta aún?</Text>
+          <View>
+            <Text style={styles.textInput}>Correo electronico</Text>
+            <TextInput style={styles.input} onChangeText={userEmail => setEmail(userEmail)} type='text'/>
+          </View>
+          <View>
+            <Text style={styles.textInput}>Contreseña</Text>
+            <TextInput style={styles.input} onChangeText={userPassword => setPassword(userPassword)} type='text' secureTextEntry={true}/>
+          </View>
+          <TouchableOpacity style={styles.appButtonContainer} onPress={onSignIn}>
+              <Text style={styles.appButtonText}>Iniciar Sesión</Text>
+          </TouchableOpacity>
+          <View style={styles.linkTextContainer}>
+            <TouchableOpacity onPress={() => navigation.navigate('Register')}><Text style={styles.linkText}>¡Registrate!</Text></TouchableOpacity>
+            <TouchableOpacity><Text style={styles.linkText}>¿Problemas para acceder?</Text></TouchableOpacity>
+          </View>
         </View>
         <View style={styles.footer}>
           <TouchableOpacity style={styles.helpButtonContainer}>
