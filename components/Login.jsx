@@ -43,7 +43,7 @@ function Login( { navigation } ) {
     
     return (
       <View>
-          <View style={styles.header}>
+        <View style={styles.header}>
           <Image source = {require('../assets/LogoIntecnologia.png')}
             style = {{ width: "85%", height: 50 }}
           />

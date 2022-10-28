@@ -29,6 +29,19 @@ export default StyleSheet.create({
       marginTop: 100,
       marginBottom: 50
     },
+    homeHeader: {
+      flexDirection: 'row',
+      width: '100%',
+      height: 'auto',
+      marginTop: 50,
+      marginBottom: 50,
+      backgroundColor: "#AC0A22",
+      padding : 10,
+      alignItems : 'center',
+    },
+    burgerMenu : {
+      marginLeft : 25,
+    },
     body: {
       alignItems: 'center',
       justifyContent: 'space-between',
@@ -79,10 +92,6 @@ export default StyleSheet.create({
       alignSelf: "center",
       textTransform: "uppercase"
     },
-    burgerMenu : {
-      marginLeft : 20,
-      marginTop : 20
-    },
     footer : {
       flex: 1,
       justifyContent: "space-between",
@@ -90,8 +99,13 @@ export default StyleSheet.create({
       marginRight: 20,
       marginTop: 150
     },
+    homeFooter : {
+      backgroundColor : "#AC0A22",
+      alignItems : "center",
+      flexDirection : "row",
+      justifyContent : "space-evenly",
+    },
     scannerQrButton: {
-      backgroundColor: "#ffffff",
       borderRadius: 30,
       paddingVertical: 10,
       paddingHorizontal: 10,

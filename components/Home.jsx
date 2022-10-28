@@ -3,37 +3,38 @@ import { Text, View, TextInput, TouchableOpacity, Button, Image } from 'react-na
 import styles from './Theme.js';
 import { Entypo } from '@expo/vector-icons'; 
 import { AntDesign } from '@expo/vector-icons'; 
+import { FontAwesome } from '@expo/vector-icons'; 
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons'; 
 import symbolicateStackTrace from 'react-native/Libraries/Core/Devtools/symbolicateStackTrace';
 
 function Home({navigation}) {
 
   return (
     <View >
-      <View style={styles.header}>
-        <Text style={styles.headerFont}>I</Text>
-        <Text style={styles.headerFont}>N</Text>
-        <Text style={styles.headerFont}>T</Text>
-        <Text style={styles.headerFont}>E</Text>
-        <Text style={styles.headerFont}>C</Text>
-        <Text style={styles.headerFont}>N</Text>
-        <Text style={styles.headerFont}>O</Text>
-        <Text style={styles.headerFont}>L</Text>
-        <Text style={styles.headerFont}>O</Text>
-        <Text style={styles.headerFont}>G</Text>
-        <Text style={styles.headerFont}>I</Text>
-        <Text style={styles.headerFont}>A</Text>
-      </View>
-      <View>
+      <View style={styles.homeHeader}>
+      <Image source = {require('../assets/LogoIntecnologia.png')}
+            style = {{ width: "80%", height: 40 }}
+          />
         <TouchableOpacity style={styles.burgerMenu} onPress={() => navigation.toggleDrawer()}>
-          <Entypo name="menu" size={35} color="black" />
+          <Entypo name="menu" size={35} color="white" />
         </TouchableOpacity>
       </View>
-      <View style={styles.body}>
-
-      </View>
-      <View style={styles.footer}>
+      <View style={styles.homeFooter}>
         <TouchableOpacity style={styles.scannerQrButton} onPress={() => navigation.navigate('ScanQR')}>
-          <AntDesign name="qrcode" size={35} color="black" />
+          <FontAwesome name="home" size={24} color="white" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.scannerQrButton} onPress={() => navigation.navigate('ScanQR')}>
+          <MaterialCommunityIcons name="bell" size={28} color="white" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.scannerQrButton} onPress={() => navigation.navigate('ScanQR')}>
+          <AntDesign name="qrcode" size={35} color="white" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.scannerQrButton} onPress={() => navigation.navigate('ScanQR')}>
+          <FontAwesome name="calendar-check-o" size={24} color="white" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.scannerQrButton} onPress={() => navigation.navigate('ScanQR')}>
+        <Ionicons name="settings-sharp" size={24} color="white" />
         </TouchableOpacity>
       </View>
 
