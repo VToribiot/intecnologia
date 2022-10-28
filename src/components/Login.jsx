@@ -8,10 +8,10 @@ const Login = ({ navigation }) => {
 
   const onSignIn = () => {
     if (
-      userCredentials.email.trim() !== '' &&
-      userCredentials.password.trim() !== ''
+      userCredentials['email'].trim() !== '' &&
+      userCredentials['password'].trim() !== ''
     ) {
-      // Validate email and password process
+      // Validate [' and ']password process
       axios
         .post(
           'http://evasquez03-001-site1.btempurl.com/api/User/Login',

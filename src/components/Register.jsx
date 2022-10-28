@@ -21,10 +21,10 @@ const Register = ({ navigation }) => {
 
   const onRegister = () => {
     if (
-      userData.email.trim() !== '' &&
-      userData.fullName.trim() !== '' &&
-      userData.password.trim() !== '' &&
-      userData.userType > 0
+      userData['email'].trim() !== '' &&
+      userData['fullName'].trim() !== '' &&
+      userData['password'].trim() !== '' &&
+      userData['userType'] > 0
     ) {
       // Here goes the verification or processing of the users information
       axios
