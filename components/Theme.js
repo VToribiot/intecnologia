@@ -34,7 +34,6 @@ export default StyleSheet.create({
       width: '100%',
       height: 'auto',
       marginTop: 50,
-      marginBottom: 50,
       backgroundColor: "#AC0A22",
       padding : 10,
       alignItems : 'center',
@@ -47,6 +46,13 @@ export default StyleSheet.create({
       justifyContent: 'space-between',
       flexDirection: 'column',
       height: '45%',
+    },
+    homebody :{
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      flexDirection: 'column',
+      height: '81.6%',
+      backgroundColor: '#fff'
     },
     appButtonContainer: {
       elevation: 8,
@@ -104,6 +110,19 @@ export default StyleSheet.create({
       alignItems : "center",
       flexDirection : "row",
       justifyContent : "space-evenly",
+    },
+    scannerQrButtonContainer : {
+      position: 'absolute',
+      bottom:10,
+      left: '40%',
+      width: 80,
+      height: 80,
+      borderRadius: 50,
+      borderWidth: 10,
+      borderColor: '#fff',
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor:'#AC0A22'
     },
     scannerQrButton: {
       borderRadius: 30,
