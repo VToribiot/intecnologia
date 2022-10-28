@@ -13,7 +13,7 @@ function Home({navigation}) {
   return (
     <View >
       <View style={styles.homeHeader}>
-      <Image source = {require('../assets/LogoIntecnologia.png')}
+      <Image source = {require('../assets/LogoIntecnologia-white.png')}
             style = {{ width: "80%", height: 40 }}
           />
         <TouchableOpacity style={styles.burgerMenu} onPress={() => navigation.toggleDrawer()}>
