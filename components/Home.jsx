@@ -28,7 +28,7 @@ function Home({navigation}) {
           <MaterialCommunityIcons name="bell" size={28} color="white" />
         </TouchableOpacity>
         <TouchableOpacity style={styles.scannerQrButton} onPress={() => navigation.navigate('ScanQR')}>
-          <AntDesign name="qrcode" size={35} color="white" />
+          <AntDesign name="scan1" size={24} color="white" />
         </TouchableOpacity>
         <TouchableOpacity style={styles.scannerQrButton} onPress={() => navigation.navigate('ScanQR')}>
           <FontAwesome name="calendar-check-o" size={24} color="white" />
