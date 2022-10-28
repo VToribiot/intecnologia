@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "testproject",
-    "slug": "testproject",
+    "name": "intecnologia",
+    "slug": "intecnologia",
     "owner": "vtoribio",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -15,9 +15,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },

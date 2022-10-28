@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, Button, TouchableOpacity } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
-import { Ionicons } from '@expo/vector-icons'; 
-import Theme from './Theme.js';
-export default function ScannerQR({navigation}) {
+import { Ionicons } from '@expo/vector-icons';
+
+const ScannerQR = ({ navigation }) => {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
-  const [text, setText] = useState('Favor scannear el codigo QR del stand')
+  const [text, setText] = useState('Por Favor escanéa el código QR del Stand');
 
   const askForCameraPermission = () => {
     (async () => {
       const { status } = await BarCodeScanner.requestPermissionsAsync();
       setHasPermission(status === 'granted');
-    })()
-  }
+    })();
+  };
 
   // Request Camera Permission
   useEffect(() => {
@@ -23,9 +23,9 @@ export default function ScannerQR({navigation}) {
   // What happens when we scan the bar code
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
-    setText(data)
+    setText(data);
     console.log('Type: ' + type + '\nData: ' + data);
-    navigation.navigate('Inicio')
+    navigation.navigate('Inicio');
   };
 
   // Check permissions and return the screens
@@ -33,14 +33,19 @@ export default function ScannerQR({navigation}) {
     return (
       <View style={styles.container}>
         <Text>Requesting for camera permission</Text>
-      </View>)
+      </View>
+    );
   }
   if (hasPermission === false) {
     return (
       <View style={styles.container}>
         <Text style={{ margin: 10 }}>No access to camera</Text>
-        <Button title={'Allow Camera'} onPress={() => askForCameraPermission()} />
-      </View>)
+        <Button
+          title={'Allow Camera'}
+          onPress={() => askForCameraPermission()}
+        />
+      </View>
+    );
   }
 
   // Return the View
@@ -52,19 +57,25 @@ export default function ScannerQR({navigation}) {
         </TouchableOpacity>
       </View>
       <View>
-      <View style={styles.barcodebox}>
-        <BarCodeScanner
-          onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
-          style={{ height: 400, width: 400 }} />
-      </View>
-      <Text style={styles.maintext}>{text}</Text>
+        <View style={styles.barcodebox}>
+          <BarCodeScanner
+            onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
+            style={{ height: 400, width: 400 }}
+          />
+        </View>
+        <Text style={styles.maintext}>{text}</Text>
 
-      {scanned && <Button title={'Scan again?'} onPress={() => setScanned(false)} color='tomato' />}
+        {scanned && (
+          <Button
+            title={'Scan again?'}
+            onPress={() => setScanned(false)}
+            color="tomato"
+          />
+        )}
       </View>
-      
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -72,7 +83,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    paddingTop: 70
+    paddingTop: 70,
   },
   maintext: {
     fontSize: 16,
@@ -87,11 +98,12 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     backgroundColor: 'tomato',
   },
-  backButtonContainer:{
+  backButtonContainer: {
     flexDirection: 'row',
     alignSelf: 'stretch',
     marginLeft: 20,
-    paddingBottom: 80
-  }
-
+    paddingBottom: 80,
+  },
 });
+
+export default ScannerQR;
